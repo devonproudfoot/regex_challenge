@@ -77,9 +77,32 @@ table {
 }
 
 .Challenge {
-  display: none;
+	display: none;
+	height: 100%;
 }
 
-.active {
+.Challenge-Header {
+	border-bottom: 0.1em solid black;
+	padding: 0.5em;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.Challenge-Input input {
+
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+}
+
+.Challenge.active {
   display: block;
+}
+
+.Challenge-Validation {
+	height: 33%;
+	padding: 10em;
 }
