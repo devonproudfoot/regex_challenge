@@ -1,50 +1,44 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const navBar = document.getElementById('navbar');
-  const challenges = document.getElementById('content');
-
+(function($) {
   function getId(element) {
-    return element.id.slice(-1);
+    return element.attr('id').slice(-1);
   }
 
   function changeChallenge(identifier) {
-    document.getElementsByClassName('active')[0].classList.remove('active')
-    document.getElementById(`challenge${identifier}`).classList.add('active');
+    $('.selected').removeClass('selected');
+    $(`#challenge${identifier}`).addClass('selected');
   }
 
-  function checkAnswerValidity() {
-    return 0;
+  function checkAnswers(regex, $tests) {
+    const answerValidity = false;
+    const testFor = $tests.find('.to-validate');
+    const doNotTestFor = $tests.find('.do-not-validate');
+
+    console.log(testFor, doNotTestFor);
+
+    return answerValidity;
   }
 
-  function updateResultMessage(result, resultHeader) {
+  function updateResultMessage(result, $resultHeader) {
     let message;
     message = result ? 'Great Job!' : 'Try Again!';
-    resultHeader.innerText = message;
+    $resultHeader.text(message);
   }
 
-  // Add click events for the validation buttons
-  challenges.addEventListener('click', function(e) {
-    if (e.target.classList.contains('validate')) {
-      e.preventDefault();
-      const resultMessage = e.target.nextElementSibling;
-      const parentDiv = e.target.parentElement.parentElement;
-      const input = parentDiv.children[1];
-      const values = parentDiv.children[2];
-
-      console.log(input, values);
-
-      //const validAnswer = checkAnswerValidity();
-      const validAnswer = false;
-      updateResultMessage(validAnswer, resultMessage);
-
-    }
+  $('.nav-link').on('click', function(e) {
+    e.preventDefault();
+    const challengeId = getId($(e.target));
+    changeChallenge(challengeId);
   });
 
-  // Add Click event for navbar to change challenges
-  navBar.addEventListener('click', function(e) {
-    if (e.target.classList.contains('NavBar-Selector')) {
-      e.preventDefault();
-      const challengeId = getId(e.target)
-      changeChallenge(challengeId);
-    }
+  $('.Challenge-Button').on('click', function(e) {
+    e.preventDefault();
+    const $buttonPressed = $(e.target);
+    const $messageHeader = $buttonPressed.siblings('.Challenge-Result');
+    const inputContents = $buttonPressed.parents('.Challenge').find('input').val();
+    const validationTests = $buttonPressed.parents('.Challenge').find('.Challenge-Values');
+
+    const validity = checkAnswers(inputContents, validationTests);
+    updateResultMessage(validity, $messageHeader);
   });
-});
+  
+})(jQuery);

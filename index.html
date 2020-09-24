@@ -1,42 +1,64 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Regex Challenge</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/styles.css">
+
+    <title>Hello, world!</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="NavBar" id="navbar"> 
-          <ul> 
-          <li><a class="NavBar-Selector" id="button1" href="#">Dates</a></li> 
-          <li><a class="NavBar-Selector" id="button2" href="#">Phone Numbers</a></li> 
-          <li><a class="NavBar-Selector" id="button3" href="#">Link 3</a></li> 
-          <li><a class="NavBar-Selector" id="button4" href="#">Link 4</a></li> 
-          <li><a class="NavBar-Selector" id="button5" href="#">Link 5</a></li> 
-          </ul> 
-        </div>
-    </nav> 
-    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Regex Challenge</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="button1">Dates - Easy</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="button2">Dates - Hard</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="button3">Phone Numbers - Easy</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#"id="button4">Phone Numbers - Hard</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#" id="button5">Email Addresses- Easy</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#"id="button6">Email Addresses - Hard</a>
+          </li>
+      </div>
+    </nav>
+
+
     <main id="content">
-      <div class="Challenge active" id="challenge1">
+      <div class="Challenge selected clearfix" id="challenge1">
         <h1 class="Challenge-Header">Dates - Formats</h1>
-        <div class="Challenge-Input">
-          <p>Your RegEx</p>
+        <div class="Challenge-Input offset-1 col-10 col-md-4">
+          <h3>Your RegEx:</h3>
           / <input id="input1"></input> /
         </div>
-        <div class="Challenge-Values" id="values1">
-          <p>10-01-1993</p>
-          <p>12-25-2020</p>
-          <p>05-09-1992</p>
+        <div class="Challenge-Values offset-1 col-10 offset-md-2 col-md-4" id="values1">
+          <h3>Validate these</h3>
+          <p class="to-validate">10-01-1993</p>
+          <p class="to-validate">12-25-2020</p>
+          <h3>...but not these!</h3>
+          <p class="do-not-validate">05-09-1992</p>
         </div>
         <div class="Challenge-Validation">
-          <button class="validate">Check your answer</button>
-          <h2 class="result" >In progress</h2>
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
         </div>
       </div>
       <div class="Challenge" id="challenge2">
@@ -48,8 +70,8 @@
 
         </div>
         <div class="Challenge-Validation">
-          <button>Check your answer</button>
-          <h2>In progress</h2>
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
         </div>
       </div>
       <div class="Challenge" id="challenge3">
@@ -61,8 +83,8 @@
 
         </div>
         <div class="Challenge-Validation">
-          <button>Check your answer</button>
-          <h2>In progress</h2>
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
         </div>
       </div>
       <div class="Challenge" id="challenge4">
@@ -74,8 +96,8 @@
 
         </div>
         <div class="Challenge-Validation">
-          <button>Check your answer</button>
-          <h2>In progress</h2>
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
         </div>
       </div>
       <div class="Challenge" id="challenge5">
@@ -87,11 +109,29 @@
 
         </div>
         <div class="Challenge-Validation">
-          <button>Check your answer</button>
-          <h2>In progress</h2>
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
+        </div>
+      </div>
+      <div class="Challenge" id="challenge6">
+        <h1 class="Challenge-Header">Challenge 6</h1>
+        <div class="Challenge-Input">
+
+        </div>
+        <div class="Challenge-Values">
+
+        </div>
+        <div class="Challenge-Validation">
+          <button class="btn btn-primary Challenge-Button">Check your answer</button>
+          <h2 class="Challenge-Result">In progress</h2>
         </div>
       </div>
     </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="/js/scripts.js"></script>
   </body>
 </html>

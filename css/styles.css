@@ -1,108 +1,48 @@
-/* CSS Reset */
-
-/* Css ::-webkit-search-results-decoration
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html {
+  box-sizing: border-box;
 }
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
+.nav-item.active {
+	border-left: 0.1em solid black;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
 
-/* Temp NavBar */
-#navbar ul { 
-	margin: 0; 
-	padding: 5px; 
-	list-style-type: none; 
-	text-align: center; 
-	background-color: #000; 
+.nav-item.active:first-of-type {
+	border-left: none;
 }
- 
-#navbar ul li {  
-	display: inline; 
-}
- 
-#navbar ul li a { 
-	text-decoration: none; 
-	padding: .2em 1em; 
-	color: #fff; 
-	background-color: #000; 
-}
- 
-#navbar ul li a:hover { 
-	color: #000; 
-	background-color: #fff; 
+
+.nav-item.active > a:hover,
+.nav-item.active > a:hover {
+	border: 0.1em solid lightcoral;
+	border-radius: 25px;
 }
 
 .Challenge {
 	display: none;
-	height: 100%;
+	border: 0.1em dashed black;
+	border-radius: 25px;
+	padding: 2em;
+	margin: 1em 2em;
+	text-align: center;
 }
 
-.Challenge-Header {
-	border-bottom: 0.1em solid black;
-	padding: 0.5em;
-	text-align: center;
-	font-size: 1.5em;
+.Challenge-Input,
+.Challenge-Values {
+	float: left;
 }
 
 .Challenge-Input input {
-
-	border: 3px solid #cccccc;
-	padding: 5px;
-	font-family: Tahoma, sans-serif;
-	background-image: url(bg.gif);
-	background-position: bottom right;
-	background-repeat: no-repeat;
+	height: 2em;
 }
 
-.Challenge.active {
-  display: block;
+.Challenge.selected {
+	display: block;
 }
 
-.Challenge-Validation {
-	height: 33%;
-	padding: 10em;
+.btn {
+	border-radius: 0;
 }
