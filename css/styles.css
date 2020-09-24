@@ -30,17 +30,38 @@ html {
 	text-align: center;
 }
 
-.Challenge-Input,
-.Challenge-Values {
+.Challenge-Row > div {
 	float: left;
+}
+
+.Challenge-Row {
+	padding-top: 4em;
 }
 
 .Challenge-Input input {
 	height: 2em;
 }
 
-.Challenge.selected {
+.selected {
 	display: block;
+}
+
+.Challenge-Help {
+	position: relative;
+}
+
+.Challenge-Help > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+
+.teaser {
+	background-color: black;
+	color: white;
 }
 
 .btn {
