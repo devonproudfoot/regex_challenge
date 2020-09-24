@@ -10,27 +10,27 @@
   }
 
   function checkAnswers(regex, $tests) {
-    let answerValidity = false;
-    const testFor = $tests.find('.to-validate');
+    let answerValidity = true;
+    const tests = $tests.find('.to-validate');
 
-    const checkTests = (regex, tests) => {
-      let testValidity = true;
-      for (let i=0; i < tests.length; i++) {
-        const test = tests[i];
-        $(test).removeClass('bg-success').removeClass('bg-danger');
-        console.log(regex);
+    for (let i=0; i < tests.length; i++) {
+      const test = tests[i];
+      $(test).removeClass('bg-success').removeClass('bg-danger');
 
-        if (regex.test(test.innerText)) {
+      if (regex) {
+        regexify = RegExp(regex);
+        if (regexify.test(test.innerText)) {
           $(test).addClass('bg-success');
         } else {
           $(test).addClass('bg-danger');
-          testValidity = false;
+          answerValidity = false;
         }
+      } else {
+        $(test).addClass('bg-danger');
+        answerValidity = false;
       }
-      return testValidity;
     }
-
-    answerValidity = checkTests(regex, testFor);
+    console.log(answerValidity);
     return answerValidity;
   }
 
@@ -38,11 +38,6 @@
     let message;
     message = result ? 'Great Job!' : 'Try Again!';
     $resultHeader.text(message);
-  }
-  
-  function regexify(input) {
-    //return `/${input}/`;
-    return RegExp(input);
   }
 
   // NavBar Challenge Selector
@@ -57,7 +52,7 @@
     e.preventDefault();
     const $buttonPressed = $(e.target);
     const $messageHeader = $buttonPressed.siblings('.Challenge-Result');
-    const regexInput = regexify($buttonPressed.parents('.Challenge').find('input').val());
+    const regexInput = $buttonPressed.parents('.Challenge').find('input').val();
     const validationTests = $buttonPressed.parents('.Challenge').find('.Challenge-Values');
 
     const validity = checkAnswers(regexInput, validationTests);
