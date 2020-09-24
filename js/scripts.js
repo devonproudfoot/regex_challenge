@@ -38,8 +38,12 @@
   }
 
   function updateResultMessage(result, $resultHeader) {
+    const successMessages = ['Great Job!', 'Very Cool!', 'Nice Work!'];
+    const failMessages = ['Try Again!', 'Better Luck Next Time!', ':('];
+    const randomNum = Math.floor(Math.random() * Math.floor(failMessages.length));
+    
     let message;
-    message = result ? 'Great Job!' : 'Try Again!';
+    message = result ? successMessages[randomNum] : failMessages[randomNum];
     $resultHeader.text(message);
   }
 
