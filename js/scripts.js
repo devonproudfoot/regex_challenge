@@ -5,8 +5,11 @@
 
   function changeChallenge(identifier) {
     $('.selected').removeClass('selected');
-    console.log(identifier);
     $(`#challenge${identifier}`).addClass('selected');
+  }
+
+  function regexify(regex) {
+    return RegExp(`^${regex}$`);
   }
 
   function checkAnswers(regex, $tests) {
@@ -18,8 +21,8 @@
       $(test).removeClass('bg-success').removeClass('bg-danger');
 
       if (regex) {
-        regexify = RegExp(regex);
-        if (regexify.test(test.innerText)) {
+        testableRegex = regexify(regex);
+        if (testableRegex.test(test.innerText)) {
           $(test).addClass('bg-success');
         } else {
           $(test).addClass('bg-danger');
@@ -30,7 +33,7 @@
         answerValidity = false;
       }
     }
-    console.log(answerValidity);
+
     return answerValidity;
   }
 
