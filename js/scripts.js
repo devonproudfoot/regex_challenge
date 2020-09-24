@@ -5,6 +5,7 @@
 
   function changeChallenge(identifier) {
     $('.selected').removeClass('selected');
+    console.log(identifier);
     $(`#challenge${identifier}`).addClass('selected');
   }
 
@@ -18,6 +19,7 @@
       for (let i=0; i < tests.length; i++) {
         const test = tests[i];
         $(test).removeClass('bg-success').removeClass('bg-danger');
+        console.log(regex);
 
         if ( (regex.test(test.innerText) && shouldValidate) || (!regex.test(test.innerText) && !shouldValidate) ) {
           $(test).addClass('bg-success');
@@ -45,12 +47,14 @@
     return RegExp(input);
   }
 
+  // NavBar Challenge Selector
   $('.nav-link').on('click', function(e) {
     e.preventDefault();
     const challengeId = getId($(e.target));
     changeChallenge(challengeId);
   });
 
+  // Validate Regex
   $('.Challenge-Button').on('click', function(e) {
     e.preventDefault();
     const $buttonPressed = $(e.target);
@@ -61,5 +65,10 @@
     const validity = checkAnswers(regexInput, validationTests);
     updateResultMessage(validity, $messageHeader);
   });
-  
+
+  // Hints
+  $('.teaser').on('click', function(e) {
+    $(e.target).hide();
+    $(e.target).siblings('.hint').show();
+  });
 })(jQuery);
