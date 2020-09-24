@@ -12,18 +12,17 @@
   function checkAnswers(regex, $tests) {
     let answerValidity = false;
     const testFor = $tests.find('.to-validate');
-    const doNotTestFor = $tests.find('.do-not-validate');
 
-    const checkTests = (regex, tests, shouldValidate) => {
+    const checkTests = (regex, tests) => {
       let testValidity = true;
       for (let i=0; i < tests.length; i++) {
         const test = tests[i];
         $(test).removeClass('bg-success').removeClass('bg-danger');
         console.log(regex);
 
-        if ( (regex.test(test.innerText) && shouldValidate) || (!regex.test(test.innerText) && !shouldValidate) ) {
+        if (regex.test(test.innerText)) {
           $(test).addClass('bg-success');
-        } else if ( regex.test(test.innerText) && !shouldValidate || (!regex.test(test.innerText) && shouldValidate) ) {
+        } else {
           $(test).addClass('bg-danger');
           testValidity = false;
         }
@@ -31,8 +30,7 @@
       return testValidity;
     }
 
-    checkTests(regex, testFor, true);
-    checkTests(regex, doNotTestFor, false);
+    answerValidity = checkTests(regex, testFor);
     return answerValidity;
   }
 
