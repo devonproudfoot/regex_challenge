@@ -31,11 +31,9 @@ html {
 
 .Challenge-Row > div {
 	float: left;
-}
-
-.Challenge-Row {
 	padding-top: 4em;
 }
+
 
 .Challenge-Input input {
 	height: 2em;
@@ -52,11 +50,8 @@ html {
 
 .teaser,
 .hint {
-	position: absolute;
-	top: 0;
-	left: 0;
+
 	width: 100%;
-	padding: 2em;
 }
 
 .hint {
