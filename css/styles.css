@@ -5,19 +5,14 @@ html {
   box-sizing: inherit;
 }
 
-.nav-item.active {
+.nav-item {
 	border-left: 0.1em solid black;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
 }
 
-.nav-item.active:first-of-type {
+.nav-item:first-of-type {
 	border-left: none;
-}
-
-.nav-item.active > a:hover,
-.nav-item.active > a:hover {
-	background-color: grey;
 }
 
 .Challenge {
