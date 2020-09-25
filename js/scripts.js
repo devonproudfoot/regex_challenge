@@ -9,6 +9,7 @@
   }
 
   function regexify(regex) {
+    regex = regex.replace('^', '').replace('$', '');
     return RegExp(`^${regex}$`);
   }
 
